@@ -49,18 +49,16 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 ### Requisitos não Funcionais
 
-|ID     | Descrição do Requisito                                                                                                             |Prioridade |
-|-------|-------------------------------------------------------------------------------------------------------------------------------------|-------|
-|RNF-001| Processar as requisições dos usuários em no máximo 7 segundos                                                                       | ALTA | 
-|RNF-002| O sistema deve rodar primordialmente em dispositivos móveis, sendo responsivo, equitativo e usável                                  | ALTA | 
-|RNF-003| O Cliente pode optar fazer um pedido, o qual ficará ao seu critério se será uma entrega ou retirada no Restaurante                  | ALTA |
-|RNF-004| Perfil de Restaurante, o qual permite inserir foto/logo, descrição e avaliação dos Clientes                                         | MÉDIA |
-|RNF-005| O sistema deve mostrar aos clientes um calendário de reservas, mostrando todas que ele tem naquele mês, e deve ser notificado       | MÉDIA |
-          sempre que possuir reservas no dia atual
-|RNF-006| O sistema deve ser capaz de interpretar entradas específicas com o objetivo de realizar impressões de dois tipos de fichas (1 e 2). | MÉDIA |
-          Onde a ficha 1 é prioridade e a ficha 2 é comum, ambas devem conter o número da mesa e a posição na fila de espera (se houver)      
-|RNF-007| Deve existir um chat entre Cliente-Restaurante para possíveis dúvidas                                                               | BAIXA |
-|RNF-008| Os usuários podem escolher entre fazer o login com o cadastro do próprio site, gmail ou  facebook                                   | BAIXA |
+|ID     | Descrição do Requisito                                                                                                                                                      |Prioridade |
+|-------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------|
+|RNF-001| Processar as requisições dos usuários em no máximo 7 segundos                                                                                                               | ALTA | 
+|RNF-002| O sistema deve rodar primordialmente em dispositivos móveis, sendo responsivo, equitativo e usável                                                                          | ALTA | 
+|RNF-003| O Cliente pode optar fazer um pedido, o qual ficará ao seu critério se será uma entrega ou retirada no Restaurante                                                          | ALTA |
+|RNF-004| Perfil de Restaurante, o qual permite inserir foto/logo, descrição e avaliação dos Clientes                                                                                 | MÉDIA |
+|RNF-005| O sistema deve mostrar aos clientes um calendário de reservas, mostrando todas que ele tem naquele mês, e deve ser notificado sempre que possuir reservas no dia atual      | MÉDIA |
+|RNF-006| O sistema deve ser capaz de interpretar entradas específicas com o objetivo de realizar impressões de dois tipos de fichas (1 e 2). Onde a ficha 1 é prioridade e a ficha 2 é comum, ambas devem conter o número da mesa e a posição na fila de espera (se houver)                                                                                                                                                                 | MÉDIA |
+|RNF-007| Deve existir um chat entre Cliente-Restaurante para possíveis dúvidas                                                                                                       | BAIXA |
+|RNF-008| Os usuários podem escolher entre fazer o login com o cadastro do próprio site, gmail ou  facebook                                                                           | BAIXA |
 
 
 ## Restrições
@@ -71,4 +69,4 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 |--|-------------------------------------------------------|
 |01| O projeto deverá ser entregue até o final do semestre |
 |02| Não pode ser desenvolvido um módulo de backend        |
-|03| O projeto deverá ser feito em html, css e JavaScript  
+|03| O projeto deverá ser feito em html, css e JavaScript  |
