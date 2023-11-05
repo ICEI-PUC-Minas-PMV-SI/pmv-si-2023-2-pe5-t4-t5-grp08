@@ -1,0 +1,48 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #000000;
+}
+
+header {
+    background-color: rgb(235, 245, 245);
+    color: #030303;
+    text-align: left;
+    padding: 1em;
+    font-size: medium;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.category {
+    margin: 35px;
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #fff;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    display: inline-block;
+    text-align: left;
+}
+
+footer {
+    background-color:rgb(235, 245, 245);
+    color: #000000;
+    text-align: center;
+    padding: 1em;
+    position:relative;
+    bottom: 0;
+    width: 100%;
+}
+
+
+
