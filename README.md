@@ -7,7 +7,7 @@
 
 `SEMESTRE: 1º`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+Criação de um App/Site no intuito de diminuir a dificuldade, aumentar a facilidade no momento de reservar uma mesa em restaurantes.
 
 ## Integrantes
 
