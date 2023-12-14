@@ -1,87 +1,332 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Reeserv</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <script src="reeserv.js"></script>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light" >
-            
-          <a class="navbar-brand" href="index.html">Reseerv</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home <span class="sr-only">(página atual)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="cardapio.html">Cardapio</a>
-              </li>
-            </ul>
-          </div>
-        </nav>  
-<style>
-  body {font-family: Arial, Helvetica, sans-serif;
-}
-  .reserve-form {
-    
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-  }
-  h2{
-    text-align: center;
-  }
-  .submit-btn {
-    background-color: #007bff;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    text-align: center;
-    width: 50%;
-    position: absolute;
-    left: 25%;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Reeserv</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <a class="navbar-brand" href="index.html">Reseerv</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
+      aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">Home <span class="sr-only">(página atual)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="cardapio.html">Cardapio</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .reserve-form {
+
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
 
 
-  .submit-btn:hover {
-    opacity: 0.8;
-  }
-</style>
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    .submit-btn {
+      background-color: #007bff;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      width: 50%;
+      position: absolute;
+      left: 25%;
+    }
+
+    #msg {
+      height: 60px;
+    }
+
+    #grid-reserva tbody {
+      cursor: pointer;
+    }
+
+
+    .submit-btn:hover {
+      opacity: 0.8;
+    }
+  </style>
 </head>
-<body>
 
-<h2>Reserve sua mesa</h2>
+<body onload="init()">
 
-<form class="reserve-form" action="/submit_reservation" method="post">
-  <label for="name">Nome:</label><br>
-  <input type="text" id="name" name="name" required><br>
-  
-  <label for="date">Data:</label><br>
-  <input type="date" id="date" name="date" required><br>
-  
-  <label for="time">Horario:</label><br>
-  <input type="time" id="time" name="time" required><br>
-  
-  <label for="people">Numero de Pessoas:</label><br>
-  <input type="number" id="people" name="people" min="1" required><br>
-  
-  <label for="special">Pedidos Especiais:</label><br>
-  <textarea id="special" name="special" rows="4" cols="50"></textarea><br>
-  
-  <input type="submit" value="Submit" class="submit-btn">
-</form>
+  <h2>Reserve sua mesa</h2>
+
+  <div class="container">
+    <div class="row">
+        <div id="msg" class="col-sm-10 offset-sm-1 ">
+            <!--<div class="alert alert-warning">Contato não encontrado.</div>-->
+        </div>
+    </div>
+
+
+
+  <form id="form-reserva" >
+
+    <div class="form-group row">
+      <div class="col-sm-4">
+        <label for="inputId">Id</label>
+        <input type="text" class="form-control" id="inputId" placeholder="ID" disabled>
+      </div>
+      <div class="col-sm-8">
+        <label for="inputNome">Nome (*)</label>
+        <input type="text" class="form-control" id="inputNome" required
+          placeholder="Informe o nome do proprietário da reserva">
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-5">
+        <label for="inputTelefone">Telefone (*)</label>
+        <input type="text" class="form-control" id="inputTelefone" required
+          placeholder="Informe o telefone do proprietário da reserva">
+      </div>
+      <div class="col-sm-7">
+        <label for="inputDate">Data(*)</label>
+        <input type="date" class="form-control" id="inputDate" required placeholder="Informe a data da reserva">
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-6">
+        <label for="inputTime">Horário(*)</label>
+        <input type="time" class="form-control" id="inputTime" placeholder="Informe o horário da reserva">
+      </div>
+      <div class="col-sm-6">
+        <label for="inputNumero">Número de pessoas(*)</label>
+        <input type="number" class="form-control" id="inputNumero" required
+          placeholder="Informe o número de pessoas da reserva">
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-12">
+        <label for="special">Pedidos Especiais:</label>
+        <textarea id="inputSpecial" name="special" rows="4" cols="50"></textarea>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-4">
+        <small>(*) Campos obrigatórios</small>
+      </div>
+    </div>
+
+
+
+
+    <div class="form-group row">
+      <div class="col-sm-12">
+        <input type="button" class="btn btn-success" id="btnInsert" value="Inserir">
+        <input type="button" class="btn btn-warning" id="btnUpdate" value="Alterar">
+                    <input type="button" class="btn btn-danger" id="btnDelete" value="Excluir">
+        <input type="button" class="btn btn-secondary" id="btnClear" value="Limpar Form">
+      </div>
+    </div>
+  </form>
+  <div class="row">
+    <div class="col-sm-12">
+      <table id="grid-reserva" class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Telefone</th>
+            <th scope="col">Data</th>
+            <th scope="col">Horário</th>
+            <th scope="col">Número de pessoas</th>
+          </tr>
+        </thead>
+        <tbody id="table-reserva">
+          <tr>
+            <td scope="row">1</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </div>
+  <script src="reeserv.js"></script>
+  <script>
+    function exibeReserva(){
+      tableReserva = document.getElementById("table-reserva");
+
+      // Remove todas as linhas do corpo da tabela
+      tableReserva.innerHTML = "";
+
+      readReserva(dados => {
+        // Popula a tabela com os registros do banco de dados
+        for (i = 0; i < dados.length; i++) {
+          let Reserva = dados[i];
+          tableReserva.innerHTML += `<tr><td scope="row">${Reserva.id}</td>
+                                                    <td>${Reserva.nome}</td>
+                                                    <td>${Reserva.telefone}</td>
+                                                    <td>${Reserva.data}</td>
+                                                    <td>${Reserva.horario}</td>
+                                                    <td>${Reserva.numero}</td>
+                                                </tr>`;
+        }
+      })
+    }
+
+    function init() {
+      // Define uma variável para o formulário de Reserva
+      formReserva = document.getElementById("form-reserva");
+
+      // Adiciona funções para tratar os eventos 
+      btnInsert = document.getElementById("btnInsert");
+      btnInsert.addEventListener('click', function () {
+        // Verifica se o formulário está preenchido corretamente
+        if (!formReserva.checkValidity()) {
+          displayMessage("Preencha o formulário corretamente.");
+          return;
+        }
+
+        // Obtem os valores dos campos do formulário
+        let campoNome = document.getElementById('inputNome').value;
+        let campoTelefone = document.getElementById('inputTelefone').value;
+        let campoData = document.getElementById('inputDate').value;
+        let campoHorario = document.getElementById('inputTime').value;
+        let campoNumero = document.getElementById('inputNumero').value;
+
+        // Cria um objeto com os dados do Reserva
+        let Reserva = {
+          nome: campoNome,
+          telefone: campoTelefone,
+          data: campoData,
+          horario: campoHorario,
+          numero: campoNumero,
+        };
+
+        // Cria o Reserva no banco de dados
+        createReserva(Reserva, exibeReserva);
+
+        // Limpa o formulario
+        formReserva.reset()
+      });
+      //Trata o click do botão Listar Reservas
+      btnClear = document.getElementById('btnClear');
+      btnClear.addEventListener('click', function () {
+        formReserva.reset()
+      });
+      
+
+      // Trata o click do botão Alterar
+      btnUpdate = document.getElementById("btnUpdate");
+      btnUpdate.addEventListener('click', function () {
+        // Obtem os valores dos campos do formulário
+        let campoId = document.getElementById("inputId").value;
+        if (campoId == "") {
+          displayMessage("Selecione antes um Reserva para ser alterado.");
+          return;
+        }
+
+        // Obtem os valores dos campos do formulário
+        let campoNome = document.getElementById('inputNome').value;
+        let campoTelefone = document.getElementById('inputTelefone').value;
+        let campoData = document.getElementById('inputData').value;
+        let campoHorario = document.getElementById('inputHorario').value;
+        let campoNumero = document.getElementById('inputNumero').value;
+       
+
+        // Cria um objeto com os dados do Reserva
+        let Reserva = {
+          nome: campoNome,
+          telefone: campoTelefone,
+          Data: campoData,
+          horario: campoHorario,
+          numero: campoNumero,
+          
+        };
+
+        // Altera o Reserva no banco de dados
+        updateReserva(parseInt(campoId), Reserva, exibeReserva);
+
+        // Limpa o formulario
+        formReserva.reset()
+      });
+
+      // Trata o click do botão Excluir
+      btnDelete = document.getElementById('btnDelete');
+      btnDelete.addEventListener('click', function () {
+        let campoId = document.getElementById('inputId').value;
+        if (campoId == "") {
+          displayMessage("Selecione um Reserva a ser excluído.");
+          return;
+        }
+
+        // Exclui o Reserva no banco de dados
+        deleteReserva(parseInt(campoId), exibeReserva);
+
+        // Limpa o formulario
+        formReserva.reset()
+      });
+
+      // 
+
+      // Oculta a mensagem de aviso após alguns 5 segundos
+      msg = document.getElementById('msg');
+      msg.addEventListener("DOMSubtreeModified", function (e) {
+        if (e.target.innerHTML == "") return;
+        setTimeout(function () {
+          alert = msg.getElementsByClassName("alert");
+          alert[0].remove();
+        }, 5000);
+      })
+
+      // Preenche o formulário quando o usuario clicar em uma linha da tabela 
+      gridReservas = document.getElementById("grid-reserva");
+      gridReservas.addEventListener('click', function (e) {
+        if (e.target.tagName == "TD") {
+
+          // Obtem as colunas da linha selecionada na tabela
+          let linhaReserva = e.target.parentNode;
+          colunas = linhaReserva.querySelectorAll("td");
+
+          // Preenche os campos do formulário com os dados da linha selecionada na tabela
+          document.getElementById('inputId').value = colunas[0].innerText;
+          document.getElementById('inputNome').value = colunas[1].innerText;
+          document.getElementById('inputTelefone').value = colunas[2].innerText;
+          document.getElementById('inputData').value = colunas[3].innerText;
+          document.getElementById('inputHorario').value = colunas[4].innerText;
+          document.getElementById('inputNumero').value = colunas[5].innerText;
+
+        }
+      });
+
+      exibeReserva();
+    }
+
+  </script>
 
 
 </body>
+
 </html>
