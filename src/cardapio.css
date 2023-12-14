@@ -6,15 +6,6 @@ body {
     color: #000000;
 }
 
-header {
-    background-color: #007bff;
-    color: #030303;
-    text-align: left;
-    padding: 1em;
-    font-size: medium;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
 .category {
     margin: 35px;
     text-align: center;
@@ -30,7 +21,7 @@ li {
     padding: 10px;
     margin: 5px;
     border-radius: 5px;
-    display: inline-block;
+    display: flex;
     text-align: left;
 }
 
@@ -43,6 +34,16 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+#cardapio {
+    font-size: 100px;
+}
+
+@media screen and (min-width: 400px) {
+
+}
+
+
 
 
 
