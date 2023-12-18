@@ -1,13 +1,6 @@
 # Introdução
 
-Imagine que você deseja apresentar este projeto para investidores que deverão decidir se investem ou não no desenvolvimento da sua ferramenta.
-
-A **Introdução** consiste das etapas: *Contextualização -- Definição do problema -- Definição dos Objetivos -- Justificativa*, e tem como função situar o seu trabalho dentro de um contexto de mercado e mostrar a importância da sua proposta para resolver a dor de um usuário.
-
-
-A Contextualização deve situar sem projeto em um determinado contexto de mercado, a fim de fornecer informações adicionais que possam ajudar a entender melhor o assunto que você irá abordar. Serve também para definir a relevância do seu assunto, uma vez que mostra o tamanho do mercado em que se está inserido. Ela pode envolver a análise de vários aspectos, como o ambiente histórico, cultural, político e social em que o problema a ser atacado surgiu.
-
-Escreva de 2 a 3 parágrafos para contetualizar o seu projeto.
+As reservas de mesas online têm se tornado uma prática cada vez mais comum, especialmente devido à conveniência que oferecem aos clientes e aos estabelecimentos. Com a expansão do uso de dispositivos móveis e da internet, as pessoas têm procurado maneiras mais fáceis e eficientes de garantir um lugar em seus restaurantes favoritos. Nesse contexto, o projeto sobre reservas de mesas online visa explorar e desenvolver soluções que facilitem e aprimorem esse processo tanto para os clientes quanto para os restaurantes. Através do desenvolvimento-web, o objetivo é criar um sistema que proporcione uma experiência mais agradável e organizada para todos os envolvidos, contribuindo para a otimização da gestão de reservas e para a satisfação dos clientes.
 
 ## Problema
 
